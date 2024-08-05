@@ -11,18 +11,17 @@ import (
 	"runtime"
 )
 
-func CreateFile(filePath string){
+func CreateFile(filePath string) {
 	var _, err = os.Stat(filePath)
-	if os.IsNotExist(err){
+	if os.IsNotExist(err) {
 		var file, err = os.Create(filePath)
-		if err != nil{
+		if err != nil {
 			fmt.Println(err.Error())
 		}
 		defer file.Close()
 	}
 	fmt.Println("===done creating file", filePath)
 }
-
 
 func PathExists(path string) (bool, error) {
 	fi, err := os.Stat(path)
@@ -38,7 +37,6 @@ func PathExists(path string) (bool, error) {
 	return false, err
 }
 
-
 func GetRootPath() string {
 	var abPath string
 	_, filename, _, ok := runtime.Caller(0)
@@ -48,7 +46,7 @@ func GetRootPath() string {
 	return abPath
 }
 
-func ReadFile(){
+func ReadFile() {
 	path, err := os.Getwd()
 	file, err := os.Open(path + "\\pkg\\file\\test.txt")
 	if err != nil {
@@ -59,7 +57,7 @@ func ReadFile(){
 	for {
 		line, err := reader.ReadString('\n')
 		fmt.Println("The input was:", line)
-		if err == io.EOF{
+		if err == io.EOF {
 			return
 		}
 	}
@@ -114,6 +112,17 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 	return io.Copy(dst, src)
 }
 
+func ReadFileAndParse() {
+	path, err := os.Getwd()
+	file, err := os.Open(path + "\\pkg\\file\\test.txt")
+	if err != nil {
+		fmt.Printf("There occurred an err on opening the file:%v", err)
+	}
+	defer file.Close()
+	reader := bufio.NewReader(file)
+	reader.ReadString()
+}
+
 func main() {
-	WriteFile()
+	ReadFile()
 }

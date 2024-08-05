@@ -4,14 +4,14 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 type Person struct {
-	Name string
-	Age  string
+	Name    string
+	Age     string
 	Address string
 }
-
 
 func F(n int) func() int {
 	return func() int {
@@ -21,12 +21,13 @@ func F(n int) func() int {
 }
 
 var f = F(2)
+
 type PublishMsg struct {
-	AzCode                 string
-	ResourceId             string
-	ResourceType           string
-	ResourceState          string
-	FixedIps               []string      //nova instance fixed_ips
+	AzCode        string
+	ResourceId    string
+	ResourceType  string
+	ResourceState string
+	FixedIps      []string //nova instance fixed_ips
 }
 
 func parseFixedIps(payload map[string]interface{}, msg *PublishMsg) {
@@ -61,7 +62,7 @@ func watShadowDefer(i int) (ret int) {
 }
 
 type RoundRobin struct {
-	indexer     map[string]*uint32
+	indexer map[string]*uint32
 }
 
 func (r *RoundRobin) Select(topic string) uint32 {
@@ -75,13 +76,11 @@ func (r *RoundRobin) Select(topic string) uint32 {
 	return *id % 10
 }
 
-
-
 const AESKEY = "KqxqU4"
 
-//DecodeString decode ecs user to openstack password
+// DecodeString decode ecs user to openstack password
 func DecodeString(src string) string {
-	dst,_ := hex.DecodeString(src)
+	dst, _ := hex.DecodeString(src)
 	dst = dst[:len(dst)-len(AESKEY)]
 	return string(dst)
 }
@@ -90,4 +89,5 @@ func main() {
 	fmt.Println(DecodeString("65386561323366342d306339352d343838302d386531372d3361663333386463633230314b7178715534"))
 
 	fmt.Printf("%v", []byte("1233"))
+	fmt.Println(time.Now().UnixMicro())
 }
