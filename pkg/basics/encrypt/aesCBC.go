@@ -60,9 +60,9 @@ func unpad(ciphertext []byte) []byte {
 }
 
 func main() {
-	s, _ := Encrypt([]byte("admin_fgdghhh5555sss7778888888888888888888888888888888888888888888888888888888888888888888888888888888888888"))
-	fmt.Println(s)
+	//s, _ := Encrypt([]byte("rk@T47dTJA7U7Qu+ioByznFP4477Ki2XnJ9XmJGFiJgFNON53Xq6pD4vfvW/eovgxI5"))
+	//fmt.Println(s)
 
-	res, _ := Decrypt(s)
+	res, _ := Decrypt("4NrJM3e6q1K4561yFNMUis/ZWBtTZq4RTMDBzWc0ulcVD4Ds0dmE6+QMcESmu6iv")
 	fmt.Println(res)
 }

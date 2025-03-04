@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"reflect"
 	"time"
 )
 
@@ -90,4 +91,10 @@ func main() {
 
 	fmt.Printf("%v", []byte("1233"))
 	fmt.Println(time.Now().UnixMicro())
+	fmt.Println(len("A6DF19913B2489CE57B7487BDDF8B460DEBCDAA9"))
+	fmt.Println(len("DA518C0B5C12179558255B4FB037B6CEA7AC5463"))
+	fmt.Println(len("E3E07A566BD2748FEEDF7A0150E86E838C99FA6E4D252CBB1B05594231D941C4"))
+	var a interface{} = Person{}
+	fmt.Println(a)
+	fmt.Println(reflect.ValueOf(a).IsZero())
 }

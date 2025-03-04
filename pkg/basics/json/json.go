@@ -1,6 +1,7 @@
-package json
+package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -19,12 +20,12 @@ func Decode(data []byte, val interface{}) error {
 }
 
 type Person struct {
-	Name string
-	Age  string
+	Name    string
+	Age     string
 	Address string
 }
 
-func EncodeDecodeUsage(){
+func EncodeDecodeUsage() {
 	j := make(map[string]string)
 	j["name"] = "shane"
 	j["age"] = "18"
@@ -40,7 +41,6 @@ func EncodeDecodeUsage(){
 	}
 	fmt.Println(obj)
 }
-
 
 type Mobile struct {
 	Resultcode string `json:"resultcode"`
@@ -79,4 +79,22 @@ func DecodeJson() {
 	fmt.Println(a.Result)
 }
 
+type T struct {
+	Content string `json:"content"`
+}
 
+func marshal(r *T) string {
+	bf := bytes.NewBuffer([]byte{})
+	jsonEncoder := json.NewEncoder(bf)
+	jsonEncoder.SetEscapeHTML(false)
+	_ = jsonEncoder.Encode(r)
+	return bf.String()
+}
+
+func main() {
+	r := new(T)
+	r.Content = "https://rongke.plaso.cn/rksdk/dev/liveclass_live_robot/index.html?appId=2R4uK1&meetingId=6788a177a0eaff0001f17861&endTime=1737021840000&accessToken=6zs1D2FGkhEzHkBmI"
+	fmt.Println(marshal(r))
+	res, _ := json.Marshal(r)
+	fmt.Println(string(res))
+}
