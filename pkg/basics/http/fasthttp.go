@@ -8,7 +8,7 @@ import (
 )
 
 func GetMQInfos() {
-	getUrl := fmt.Sprintf("http://jovian-integration-service/inner/regions/mqinfos")
+	getUrl := fmt.Sprintf("https://www.baidu.com")
 	log.Println(fmt.Sprintf("GetMQInfos request url (%+v)", getUrl))
 	req := fasthttp.AcquireRequest()
 	defer fasthttp.ReleaseRequest(req)
@@ -25,7 +25,6 @@ func GetMQInfos() {
 	log.Println(fmt.Sprintf("GetMQInfos response content %+v", string(content)))
 }
 
-
 func main() {
-    GetMQInfos()
+	GetMQInfos()
 }
