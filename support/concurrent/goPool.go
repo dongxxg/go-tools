@@ -4,8 +4,7 @@ package concurrent
 
 import (
 	"fmt"
-	"runtime/debug"
-	"support/logger"
+	//"support/logger"
 	"time"
 )
 
@@ -69,7 +68,7 @@ func (p *Pool) worker(task func()) {
 		<-p.sem
 		err := recover()
 		if err != nil {
-			logger.Error("excuete task error, %s %s", err, string(debug.Stack()))
+			//logger.Error("excuete task error, %s %s", err, string(debug.Stack()))
 		}
 	}()
 

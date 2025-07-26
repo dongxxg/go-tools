@@ -85,6 +85,7 @@ require (
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/olivere/elastic/v7 v7.0.32 // indirect
 	github.com/onsi/ginkgo/v2 v2.15.0 // indirect
+	github.com/orcaman/concurrent-map v1.0.0 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/panjf2000/ants v1.3.0 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect

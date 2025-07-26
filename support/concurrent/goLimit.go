@@ -1,8 +1,7 @@
 package concurrent
 
 import (
-	"runtime/debug"
-	"support/logger"
+	//"support/logger"
 	"sync"
 )
 
@@ -25,7 +24,7 @@ func (g *GoLimit) Run(f func()) *GoLimit {
 	go func() {
 		defer func() {
 			if err := recover(); err != nil {
-				logger.Error("go limit run err: %s\n%s", err, debug.Stack())
+				//logger.Error("go limit run err: %s\n%s", err, debug.Stack())
 			}
 			g.wg.Done()
 			<-g.c
