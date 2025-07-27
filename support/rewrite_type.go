@@ -1,8 +1,3 @@
-/**
- * @author  zhaoliang.liang
- * @date  2024/11/27 18:47
- */
-
 package support
 
 import "encoding/json"

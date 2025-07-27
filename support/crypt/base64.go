@@ -1,8 +1,3 @@
-/**
- * @author  zhaoliang.liang
- * @date  2024/2/29 0029 15:08
- */
-
 package crypt
 
 import "encoding/base64"

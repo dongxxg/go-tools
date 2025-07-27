@@ -13,7 +13,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"support/logger"
 
 	"github.com/pkg/errors"
 )
@@ -66,7 +65,6 @@ func IsExisted(localFilePath string) (bool, error) {
 func GetContent(localPath string) ([]byte, error) {
 	b, err := ioutil.ReadFile(localPath)
 	if err != nil {
-		logger.Warn("Error can not get file %v", err)
 		return nil, err
 	}
 	return b, nil
@@ -111,7 +109,6 @@ func WriteBytesFile(localPath string, m []byte) error {
 	}
 	err2 := ioutil.WriteFile(localPath, m, DEFAULT_PERM)
 	if err2 != nil {
-		logger.Error(fmt.Sprintf("write file to %s failed. err = %s", localPath, err2.Error()))
 		return err2
 	} else {
 		return nil
@@ -128,7 +125,6 @@ func WriteJsonFile(object interface{}, localPath string, gzipFlag bool) error {
 	}
 	data, errs := json.Marshal(object)
 	if errs != nil {
-		logger.Error("write json file %s failed. err=%s", localPath, errs)
 		return errs
 	}
 	res := data
@@ -143,7 +139,6 @@ func WriteJsonFile(object interface{}, localPath string, gzipFlag bool) error {
 	// basename := filepath.Base(localPath)
 	err := os.WriteFile(localPath, res, DEFAULT_PERM)
 	if err != nil {
-		logger.Error("write json to file %s failed. err=%s", localPath, err)
 		return err
 	}
 	return nil
@@ -158,7 +153,6 @@ func PreCheckDir(localPath string) error {
 	if err != nil || !info.IsDir() {
 		err1 := os.MkdirAll(fileDir, DEFAULT_PERM)
 		if err1 != nil {
-			logger.Error(fmt.Sprintf("mkdir filedir %s failed. err = %s", localPath, err1.Error()))
 			return err1
 		}
 	}

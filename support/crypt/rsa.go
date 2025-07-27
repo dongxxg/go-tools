@@ -1,8 +1,3 @@
-/**
- * @author  zhaoliang.liang
- * @date  2024/2/29 0029 13:44
- */
-
 package crypt
 
 import (

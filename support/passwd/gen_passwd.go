@@ -3,7 +3,6 @@ package passwd
 import (
 	"fmt"
 	"math/rand"
-	"support/logger"
 	"time"
 )
 
@@ -22,7 +21,6 @@ const (
 
 func generatePasswd(length int, charset string) string {
 	if length <= 0 {
-		logger.Error("generate passwd length set default 8, length: %d", length)
 		length = 8
 	}
 	// 初始化密码切片

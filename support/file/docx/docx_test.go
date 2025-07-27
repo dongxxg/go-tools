@@ -2,11 +2,10 @@ package docx
 
 import (
 	"fmt"
+	"github.com/fumiama/go-docx"
 	"os"
 	"strconv"
 	"testing"
-
-	"github.com/fumiama/go-docx"
 )
 
 func TestDocx(t *testing.T) {

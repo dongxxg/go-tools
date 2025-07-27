@@ -5,7 +5,6 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"encoding/base64"
-	"support/logger"
 )
 
 // 基础向量
@@ -33,7 +32,6 @@ func cbcEncrypt(originText []byte, key []byte, iv []byte) ([]byte, error) {
 	copy(text, originText)
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		logger.Error("encrypt failed:%s", err)
 		return nil, err
 	}
 	padText := pKCS7Padding(text, block.BlockSize()) // 填充
@@ -61,13 +59,11 @@ func base64Decode(s []byte) ([]byte, error) {
 func cbcDecrypt(encryptStr []byte, key []byte, iv []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		logger.Error("decrypt failed, data: %s, err: %v", encryptStr, err)
 		return nil, err
 	}
 	// base64转为二进制
 	encrypt, err := base64Decode(encryptStr)
 	if err != nil {
-		logger.Error("base64Decode decrypt failed, data: %s, err: %v", encryptStr, err)
 		return nil, err
 	}
 	blockMode := cipher.NewCBCDecrypter(block, iv)

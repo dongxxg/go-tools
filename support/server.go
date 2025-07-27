@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"go-tools/support/logger"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"support/logger"
 
 	"reflect"
 	"strings"
@@ -49,7 +49,6 @@ func RegisterAttachment(name string, function interface{}, attach AttachMentRequ
 	if started {
 		return
 	}
-	logger.Info("register %s", name)
 	var allMethod = service.methods
 	//检查重复
 	allMethod[name] = method{0, 0, 0, name, function, attach}

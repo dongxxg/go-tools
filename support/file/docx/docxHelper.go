@@ -1,9 +1,8 @@
 package docx
 
 import (
-	"os"
-
 	"github.com/fumiama/go-docx"
+	"os"
 )
 
 type Font int

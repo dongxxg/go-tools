@@ -2,9 +2,9 @@ package util
 
 import (
 	"bytes"
+	logger "go-tools/support/logger"
 	"image"
 	"image/png"
-	logger "support/logger"
 )
 
 func Image2Bytes(m image.Image) (data []byte, errinfo error) {

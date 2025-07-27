@@ -1,8 +1,6 @@
 package docx
 
-import (
-	"github.com/fumiama/go-docx"
-)
+import "github.com/fumiama/go-docx"
 
 const (
 	ParagraphTypeText  = 1 // 文本

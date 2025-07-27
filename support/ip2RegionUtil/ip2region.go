@@ -3,8 +3,8 @@ package ip2RegionUtil
 import (
 	"errors"
 	"fmt"
+	"go-tools/support/logger"
 	"strings"
-	"support/logger"
 	"time"
 
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
@@ -93,7 +93,6 @@ func (i *Ip2RegionUtil) GetRegionStrWithSeparator(
 func (i *Ip2RegionUtil) getRegionSlice(ip string) ([]string, error) {
 	searcher, err := xdb.NewWithBuffer(i.cBuff)
 	if err != nil {
-		logger.Error("failed to create searcher: %s\n", err.Error())
 		return nil, err
 	}
 

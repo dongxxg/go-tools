@@ -2,11 +2,11 @@ package rabbitmq
 
 import (
 	"github.com/streadway/amqp"
+	"go-tools/support/logger"
 	"log"
 	"net"
 	"runtime/debug"
 	"strconv"
-	"support/logger"
 	"time"
 )
 

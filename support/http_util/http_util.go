@@ -5,6 +5,8 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"go-tools/support/logger"
+	"go-tools/support/util"
 	"io"
 	"io/ioutil"
 	"mime"
@@ -12,8 +14,6 @@ import (
 	url2 "net/url"
 	"os"
 	"path"
-	"support/logger"
-	"support/util"
 	"time"
 )
 
@@ -43,7 +43,6 @@ func Down2Memory(url string, ops ...Option) ([]byte, string, error) {
 
 func getResponseBody(url string, r *RequestParam) ([]byte, error) {
 	var logPrefix = "Request " + r.Method + " " + url
-	logger.Debug("%s begin..., and req body: %s", logPrefix, r.GetBodyStr())
 	beginTime := time.Now()
 	defer func() {
 		logger.Debug("%s end and duration: %s", logPrefix, time.Now().Sub(beginTime))

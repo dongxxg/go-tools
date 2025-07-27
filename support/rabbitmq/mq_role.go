@@ -4,7 +4,7 @@ import (
 	"errors"
 	uuid "github.com/satori/go.uuid"
 	"github.com/streadway/amqp"
-	"support/logger"
+	"go-tools/support/logger"
 	"time"
 )
 

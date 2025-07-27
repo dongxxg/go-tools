@@ -3,8 +3,8 @@ package rabbitmq
 import (
 	"encoding/json"
 	"fmt"
-	"support/logger"
-	"support/util"
+	"go-tools/support/logger"
+	"go-tools/support/util"
 )
 
 type Config struct {

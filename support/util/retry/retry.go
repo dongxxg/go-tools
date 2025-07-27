@@ -1,7 +1,7 @@
 package retry
 
 import (
-	"support/logger"
+	"go-tools/support/logger"
 	"time"
 )
 

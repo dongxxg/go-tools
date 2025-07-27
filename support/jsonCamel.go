@@ -8,7 +8,6 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-	"support/logger"
 	"unicode"
 
 	"github.com/pkg/errors"
@@ -75,7 +74,6 @@ func UmmarshalJSON(byteStr []byte, v interface{}) error {
 		},
 	)
 
-	logger.Info("convert to %s", string(converted))
 	return json.Unmarshal(converted, v)
 }
 

@@ -1,7 +1,7 @@
 package rabbitmq
 
 import (
-	"support/logger"
+	"go-tools/support/logger"
 	"time"
 )
 

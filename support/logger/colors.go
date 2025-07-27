@@ -1,8 +1,3 @@
-/**
- * @author  zhaoliang.liang
- * @date  2023/12/23 0023 11:55
- */
-
 package logger
 
 // Colors

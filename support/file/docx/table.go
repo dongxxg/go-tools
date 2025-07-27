@@ -1,8 +1,6 @@
 package docx
 
-import (
-	"github.com/fumiama/go-docx"
-)
+import "github.com/fumiama/go-docx"
 
 var (
 	// 透明边框相关
