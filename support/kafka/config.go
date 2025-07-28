@@ -199,6 +199,7 @@ func (c *Config) initSarama() error {
 	// 详情见: https://github.com/ozontech/file.d/issues/538
 	// 		https://github.com/influxdata/telegraf/issues/7622
 	saramaConfig.Consumer.MaxProcessingTime = 1 * time.Second
+	saramaConfig.Consumer.Fetch.Max = 10 * 1024 * 1024
 
 	// producer
 	// The total number of times to retry sending a message (default 3).
