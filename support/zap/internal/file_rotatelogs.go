@@ -2,8 +2,8 @@ package internal
 
 import (
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
-	"go.uber.org/zap/zapcore"
 	"go-tools/pkg/global"
+	"go.uber.org/zap/zapcore"
 	"os"
 	"path"
 	"time"

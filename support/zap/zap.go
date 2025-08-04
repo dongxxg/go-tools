@@ -2,11 +2,11 @@ package zap
 
 import (
 	"fmt"
+	"go-tools/pkg/global"
+	"go-tools/support/file"
+	"go-tools/support/zap/internal"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"go-tools/pkg/file"
-	"go-tools/pkg/global"
-	"go-tools/pkg/zap/internal"
 	"os"
 )
 
@@ -24,7 +24,6 @@ func Zap() (logger *zap.Logger) {
 	}
 	return logger
 }
-
 
 func InitZap() {
 	global.LOG = Zap()

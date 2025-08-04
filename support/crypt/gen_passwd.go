@@ -1,4 +1,4 @@
-package passwd
+package crypt
 
 import (
 	"fmt"

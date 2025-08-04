@@ -2,9 +2,9 @@ package internal
 
 import (
 	"fmt"
+	"go-tools/pkg/global"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"go-tools/pkg/global"
 	"time"
 )
 

@@ -1,4 +1,4 @@
-package main
+package file
 
 import (
 	"bufio"
@@ -10,6 +10,10 @@ import (
 	"path"
 	"runtime"
 )
+
+// @Author dx
+// @Date 2025-08-04 22:08:00
+// @Desc
 
 func CreateFile(filePath string) {
 	var _, err = os.Stat(filePath)
@@ -110,19 +114,4 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 	defer dst.Close()
 
 	return io.Copy(dst, src)
-}
-
-func ReadFileAndParse() {
-	path, err := os.Getwd()
-	file, err := os.Open(path + "\\pkg\\file\\test.txt")
-	if err != nil {
-		fmt.Printf("There occurred an err on opening the file:%v", err)
-	}
-	defer file.Close()
-	reader := bufio.NewReader(file)
-	reader.ReadString()
-}
-
-func main() {
-	ReadFile()
 }
