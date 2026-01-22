@@ -1,0 +1,94 @@
+{
+  "map": [
+    {
+      "srcField": "",
+      "dstField": "apiCache_val",
+      "alarmType": "ALL",
+      "mapType": "apiCache",
+      "mapExpr": "http://RESOURCE-JAVA-SERVICE/rpc/res/alarm/getPortNameByIfIndex?devid=${resId}&ifIndex=${k_RESPARA}"
+    },
+    {
+      "srcField": "",
+      "dstField": "ip",
+      "alarmType": "ALL",
+      "mapType": "findAttr",
+      "mapExpr": "DEV|resIp"
+    },
+    {
+      "srcField": "",
+      "dstField": "circuitNo",
+      "alarmType": "ALL",
+      "mapType": "apiCache",
+      "mapExpr": "http://RESOURCE-JAVA-SERVICE/api/ala/getCircuitNo?resid=${resId}"
+    },
+    {
+      "srcField": "",
+      "dstField": "test_devname",
+      "alarmType": "ALL",
+      "mapType": "findAttr",
+      "mapExpr": "DEV|resName"
+    },
+    {
+      "srcField": "",
+      "dstField": "k_serialNo",
+      "alarmType": "ALL",
+      "mapType": "serial",
+      "mapExpr": "10000,1"
+    },
+    {
+      "srcField": "",
+      "dstField": "k_RESDemo",
+      "alarmType": "ALL",
+      "mapType": "regCase",
+      "mapExpr": "{k_RESCLASS} match {DEV} {resName,(\\S+)};{k_RESCLASS} match {PORT} {cirName,(\\S+)}"
+    },
+    {
+      "srcField": "RMUID",
+      "dstField": "k_NeUID",
+      "alarmType": "DC0001",
+      "mapType": "fixed",
+      "mapExpr": "aaaaaaaaaaaaaaaaa"
+    },
+    {
+      "srcField": "RMUID",
+      "dstField": "k_NeUID",
+      "alarmType": "ALL",
+      "mapType": "direct",
+      "mapExpr": "k_NeUID"
+    },
+    {
+      "srcField": "",
+      "dstField": "k_EVENT_ID",
+      "alarmType": "ALL",
+      "mapType": "join",
+      "mapExpr": "${k_SERIALNO};${k_SUMALARMID};${k_Ext1}"
+    }
+  ],
+  "dict": [
+    {
+      "dictCode": "dict_level",
+      "dictList": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "4"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "1"
+        ],
+        [
+          "5",
+          "1"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "map": [
+    {
+      "dstField": "k_SUMALARMID",
+      "srcField": "SumAlarmID"
+    },
+    {
+      "dstField": "k_SERIALNO",
+      "srcField": "SerialNo"
+    },
+    {
+      "dstField": "k_CLEARFP",
+      "srcField": "ClearFp"
+    },
+    {
+      "dstField": "t_RECVTIME",
+      "srcField": "RecvTime"
+    },
+    {
+      "dstField": "k_RAWMSG",
+      "srcField": "RawMsg"
+    },
+    {
+      "dstField": "k_NOTICEIP",
+      "srcField": "NoticeIP"
+    },
+    {
+      "dstField": "l_ALARMSTATUS",
+      "srcField": "AlarmStatus"
+    },
+    {
+      "dstField": "k_FATHERALARMIDS",
+      "srcField": "FatherAlarmIds"
+    },
+    {
+      "dstField": "k_ALARMCLASS",
+      "srcField": "AlarmClass"
+    },
+    {
+      "dstField": "k_ALARMCLASSNAME",
+      "srcField": "AlarmClassName"
+    },
+    {
+      "dstField": "k_ALARMTYPEID",
+      "srcField": "AlarmTypeID"
+    },
+    {
+      "dstField": "k_ALARMTYPEDESC",
+      "srcField": "AlarmType"
+    },
+    {
+      "dstField": "k_RESID",
+      "srcField": "ResID"
+    },
+    {
+      "dstField": "k_RESNAME",
+      "srcField": "ResName"
+    },
+    {
+      "dstField": "k_RESIP",
+      "srcField": "ResIP"
+    },
+    {
+      "dstField": "k_RESPARA",
+      "srcField": "ResPara"
+    },
+    {
+      "dstField": "k_RESCLASS",
+      "srcField": "ResClass"
+    },
+    {
+      "dstField": "k_RESTYPEID",
+      "srcField": "ResTypeID"
+    },
+    {
+      "dstField": "k_RESTYPENAME",
+      "srcField": "ResTypeName"
+    },
+    {
+      "dstField": "k_NODECODE",
+      "srcField": "NodeCode"
+    },
+    {
+      "dstField": "k_NODENAME",
+      "srcField": "NodeName"
+    },
+    {
+      "dstField": "s_NODEFULLCODE",
+      "srcField": "NodeFullCode"
+    },
+    {
+      "dstField": "k_PROVINCE",
+      "srcField": "Province"
+    },
+    {
+      "dstField": "k_RESPROPCODE",
+      "srcField": "ResPropCode"
+    },
+    {
+      "dstField": "k_RESPROPNAME",
+      "srcField": "ResPropName"
+    },
+    {
+      "dstField": "k_VENDORCODE",
+      "srcField": "VendorCode"
+    },
+    {
+      "dstField": "k_VENDORNAME",
+      "srcField": "VendorName"
+    },
+    {
+      "dstField": "k_DEVICEMODELCODE",
+      "srcField": "DetailModelCode"
+    },
+    {
+      "dstField": "k_DETAILMODELCODE",
+      "srcField": "DeviceModelCode"
+    },
+    {
+      "dstField": "t_STARTTIME",
+      "srcField": "AlarmTime"
+    },
+    {
+      "dstField": "t_LASTOCCURTIME",
+      "srcField": "LastOccurTime"
+    },
+    {
+      "dstField": "l_TIMES",
+      "srcField": "Times"
+    },
+    {
+      "dstField": "l_ALARMLEVEL",
+      "srcField": "Severity"
+    },
+    {
+      "dstField": "k_ALARMLEVELNAME",
+      "srcField": "AlarmLevelName"
+    },
+    {
+      "dstField": "s_SUMMARY",
+      "srcField": "Summary"
+    },
+    {
+      "dstField": "t_GENERATETIME",
+      "srcField": "GenerateTime"
+    },
+    {
+      "dstField": "k_REMARK",
+      "srcField": "Remark"
+    },
+    {
+      "dstField": "k_engiid",
+      "srcField": "EngiID"
+    },
+    {
+      "dstField": "k_ENGINAME",
+      "srcField": "EngiName"
+    },
+    {
+      "dstField": "t_CLEANTIME",
+      "srcField": "CleanTime"
+    },
+    {
+      "dstField": "t_RECOVERTIME",
+      "srcField": "RecoverTime"
+    },
+    {
+      "dstField": "k_RECOVERMSG",
+      "srcField": "RecoverMsg"
+    },
+    {
+      "dstField": "l_CLEANMETHOD",
+      "srcField": "CleanMethod"
+    },
+    {
+      "dstField": "k_CLEANUSERID",
+      "srcField": "CleanUserId"
+    },
+    {
+      "dstField": "k_LOCATEINFO",
+      "srcField": "LocateInfo"
+    },
+    {
+      "dstField": "l_CONFIRMSTATUS",
+      "srcField": "ConfirmStatus"
+    },
+    {
+      "dstField": "l_CONFIRMTYPE",
+      "srcField": "ConfirmType"
+    },
+    {
+      "dstField": "t_CONFIRMTIME",
+      "srcField": "ConfirmTime"
+    },
+    {
+      "dstField": "k_AGENT_RULE",
+      "srcField": "AgentRuleName"
+    },
+    {
+      "dstField": "k_HANDLE_RULE",
+      "srcField": "HandleRuleName"
+    },
+    {
+      "dstField": "k_CLEAR_RULE",
+      "srcField": "ClearRuleName"
+    },
+    {
+      "dstField": "k_CORRELATED_RULE",
+      "srcField": "CorrelatedRuleName"
+    },
+    {
+      "dstField": "k_PREHANDLE_RULE",
+      "srcField": "PrehandleRuleName"
+    },
+    {
+      "dstField": "k_PREHANDLE_FLAG",
+      "srcField": "PrehandleFlag"
+    },
+    {
+      "dstField": "k_CORRELATION_FLAG",
+      "srcField": "CorrelationFlag"
+    },
+    {
+      "dstField": "k_EVENT_TYPE",
+      "srcField": "EventType"
+    },
+    {
+      "dstField": "k_EVENT_ID",
+      "srcField": "EventId"
+    },
+    {
+      "dstField": "k_SPECIALTY",
+      "srcField": "Specialty"
+    },
+    {
+      "dstField": "k_SPECIALTY_DESC",
+      "srcField": "SpecialtyDesc"
+    },
+    {
+      "dstField": "k_ALARM_REASON",
+      "srcField": "AlarmReason"
+    },
+    {
+      "dstField": "k_CIRCUIT_ID",
+      "srcField": "cirId"
+    },
+    {
+      "dstField": "k_CIRCUIT_NAME",
+      "srcField": "cirName"
+    },
+    {
+      "dstField": "k_REMOTE_DEVID",
+      "srcField": "RemoteDevId"
+    },
+    {
+      "dstField": "k_REMOTE_DEVNAME",
+      "srcField": "RemoteDevName"
+    },
+    {
+      "dstField": "k_PORTID",
+      "srcField": "portId"
+    },
+    {
+      "dstField": "k_NET",
+      "srcField": "netCode"
+    },
+    {
+      "dstField": "t_APPSENDTIME",
+      "srcField": "AppSendTime"
+    },
+    {
+      "dstField": "t_APPINERTTIME",
+      "srcField": "AppInertTime"
+    },
+    {
+      "dstField": "k_APPID",
+      "srcField": "AppId"
+    },
+    {
+      "dstField": "tagCode",
+      "srcField": "k_TAGCODE"
+    },
+    {
+      "dstField": "k_APPNAME",
+      "srcField": "AppName"
+    },
+    {
+      "dstField": "K_SUBCOMPANY",
+      "srcField": "subCompany"
+    },
+    {
+      "dstField": "tagCodeCircuit",
+      "srcField": "k_TAGCODE_CIRCUIT"
+    },
+    {
+      "dstField": "K_SUBCENTER",
+      "srcField": "subCenter"
+    },
+    {
+      "dstField": "K_STREET",
+      "srcField": "street"
+    },
+    {
+      "dstField": "K_USERROOM",
+      "srcField": "userRoom"
+    },
+    {
+      "dstField": "K_GUARANTEELEVEL",
+      "srcField": "guaranteeLevel"
+    },
+    {
+      "dstField": "K_NODELEVEL",
+      "srcField": "nodeLevel"
+    },
+    {
+      "dstField": "k_ALARMSOURCE",
+      "srcField": "alarmSource "
+    },
+    {
+      "dstField": "k_slalarm1modify",
+      "srcField": "slalarm1modify"
+    },
+    {
+      "dstField": "k_PORTGROUP",
+      "srcField": "PortGroup"
+    },
+    {
+      "dstField": "k_CONFIRMNOTE",
+      "srcField": "ConfirmNote"
+    },
+    {
+      "dstField": "k_CONFIRMUSERID",
+      "srcField": "ConfirmUserId"
+    },
+    {
+      "dstField": "k_IFALIAS",
+      "srcField": "IfAlias"
+    },
+    {
+      "dstField": "1111",
+      "srcField": "aaa"
+    }
+  ]
+}

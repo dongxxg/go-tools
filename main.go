@@ -86,6 +86,33 @@ func DecodeString(src string) string {
 	return string(dst)
 }
 
+func ChunkSlice(slice []string, size int) [][]string {
+	var chunks [][]string
+	for i := 0; i < len(slice); i += size {
+		end := i + size
+		if end > len(slice) {
+			end = len(slice)
+		}
+		chunks = append(chunks, slice[i:end])
+	}
+	return chunks
+}
+
+func DiscardDuplicateEle(sSlice []string) []string {
+	var m = make(map[string]struct{})
+	for _, e := range sSlice {
+		if _, ok := m[e]; !ok {
+			m[e] = struct{}{}
+		}
+	}
+
+	res := make([]string, 0)
+	for k, _ := range m {
+		res = append(res, k)
+	}
+	return res
+}
+
 func main() {
 	fmt.Println(DecodeString("65386561323366342d306339352d343838302d386531372d3361663333386463633230314b7178715534"))
 
@@ -97,4 +124,6 @@ func main() {
 	var a interface{} = Person{}
 	fmt.Println(a)
 	fmt.Println(reflect.ValueOf(a).IsZero())
+
+	fmt.Println(DiscardDuplicateEle([]string{"1", "2", "3", "2", "5", "6"}))
 }

@@ -1,0 +1,14 @@
+{
+  "PUB_REST_URL": "http://188.0.55.245:80/gw/gd-fc-fmc-alarmmodel-query/alarmmodel/query/v1/query/condition",
+  "PUB_REST_PAGESIZE_FIELD": "total",
+  "PUB_REST_STATUS_VALUE": "0",
+  "PUB_REST_APPID": "gd-app-sc",
+  "PUB_REST_HEADER": "",
+  "PUB_REST_PERIOD": "5",
+  "PUB_REST_PAGE": "Y",
+  "PUB_REST_CUR_PAGE": "current",
+  "PUB_REST_METHOD": "GET",
+  "PUB_REST_APPSECRET": "87483d4052d913a87202978eac9d0a9d",
+  "PUB_REST_STATUS_FIELD": "code",
+  "PUB_REST_DATA_FIELD": "data"
+}

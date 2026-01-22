@@ -2,7 +2,7 @@ package _set
 
 import (
 	"fmt"
-	"support/collection"
+	"go-tools/support/collection"
 )
 
 var (
