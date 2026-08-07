@@ -1,0 +1,223 @@
+package kafka
+
+import (
+	"crypto/tls"
+	"crypto/x509"
+	"io/ioutil"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/IBM/sarama"
+	"github.com/pkg/errors"
+	metrics "github.com/rcrowley/go-metrics"
+	"unitechs.com/unios-dice/uni-base/core/log"
+)
+
+func init() {
+	// 关闭kafka指标统计功能，有内存泄露问题
+	// If you want to disable metrics gathering, set "metrics.UseNilMetrics" to "true"
+	// prior to starting Sarama.
+	metrics.UseNilMetrics = true // disable Sarama's go-metrics library
+}
+
+const (
+	// kafka版本说明：https://zhuanlan.zhihu.com/p/359573455
+	DEFAULT_VERSION = "2.4.0"
+)
+
+type Config struct {
+	Version string
+	Brokers string
+
+	// consumer
+	Topics string
+	// 1个partition只能被同group的一个consumer消费，同组的consumer则起到均衡效果
+	Group    string
+	Assignor string
+	Oldest   bool
+
+	// Sasl
+	SaslEnable bool
+
+	// UserName is the authentication identity (authcid) to present for SASL/PLAIN or SASL/SCRAM authentication
+	UserName string
+	// Password for SASL/PLAIN authentication
+	Password  string
+	Algorithm string
+	CertFile  string
+	CaFile    string
+	KeyFile   string
+	VerifySSL bool
+
+	// kerberos
+	KerberosConfig     *sarama.GSSAPIConfig
+	Realm              string
+	ServiceName        string
+	KeyTabPath         string
+	KerberosConfigPath string
+	// TLS
+	UseTLS bool
+
+	// OAUTHBEARER鉴权模式需要的参数
+	TokenProvider sarama.AccessTokenProvider
+
+	//增加backoff
+	Backoff string
+	saram   *sarama.Config
+}
+
+func (c *Config) newTLSConfiguration() (*tls.Config, error) {
+	t := &tls.Config{
+		InsecureSkipVerify: c.VerifySSL,
+	}
+	if c.CertFile != "" && c.KeyFile != "" && c.CaFile != "" {
+		cert, err := tls.LoadX509KeyPair(c.CertFile, c.KeyFile)
+		if err != nil {
+			return nil, err
+		}
+
+		caCert, err := ioutil.ReadFile(c.CaFile)
+		if err != nil {
+			return nil, err
+		}
+
+		caCertPool := x509.NewCertPool()
+		caCertPool.AppendCertsFromPEM(caCert)
+
+		t = &tls.Config{
+			Certificates:       []tls.Certificate{cert},
+			RootCAs:            caCertPool,
+			InsecureSkipVerify: c.VerifySSL,
+		}
+	}
+	return t, nil
+}
+
+func (c *Config) initSarama() error {
+	sarama.Logger = log.GetLogger()
+
+	/**
+	 * Construct a new Sarama configuration.
+	 * The Kafka cluster version has to be defined before the consumer/producer is initialized.
+	 */
+	saramaConfig := sarama.NewConfig()
+	// A user-provided string sent with every request to the brokers for logging,
+	// debugging, and auditing purposes. Defaults to "sarama", but you should
+	// probably set it to something specific to your application.
+	saramaConfig.ClientID = "unitechs_base_client"
+	// Whether to maintain a full set of metadata for all topics, or just
+	// the minimal set that has been necessary so far. The full set is simpler
+	// and usually more convenient, but can take up a substantial amount of
+	// memory if you have many topics and partitions. Defaults to true.
+	saramaConfig.Metadata.Full = false
+
+	ver, err := sarama.ParseKafkaVersion(c.Version)
+	if err != nil {
+		return errors.Errorf("Error parsing Kafka version: %v", err)
+	}
+	saramaConfig.Version = ver
+	c.Algorithm = strings.ToLower(c.Algorithm)
+	if c.SaslEnable {
+		if c.KerberosConfig == nil {
+			// SASL based authentication with broker. While there are multiple SASL authentication methods
+			// the current implementation is limited to plaintext (SASL/PLAIN) authentication
+			saramaConfig.Net.SASL.Enable = true
+			saramaConfig.Net.SASL.User = c.UserName
+			saramaConfig.Net.SASL.Password = c.Password
+			saramaConfig.Net.SASL.Handshake = true
+			if c.Algorithm == "plain" || c.Algorithm == sarama.SASLTypePlaintext {
+				saramaConfig.Net.SASL.Mechanism = sarama.SASLTypePlaintext
+			} else if c.Algorithm == "oauthbearer" || c.Algorithm == sarama.SASLTypeOAuth {
+				saramaConfig.Net.SASL.TokenProvider = c.TokenProvider
+			} else if c.Algorithm == "sha512" || c.Algorithm == sarama.SASLTypeSCRAMSHA512 {
+				saramaConfig.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
+				saramaConfig.Net.SASL.Mechanism = sarama.SASLTypeSCRAMSHA512
+			} else if c.Algorithm == "sha256" || c.Algorithm == sarama.SASLTypeSCRAMSHA256 {
+				saramaConfig.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA256} }
+				saramaConfig.Net.SASL.Mechanism = sarama.SASLTypeSCRAMSHA256
+			} else if c.Algorithm == "gssapi" || c.Algorithm == sarama.SASLTypeGSSAPI {
+				saramaConfig.Net.SASL.Enable = true
+				saramaConfig.Net.SASL.Mechanism = sarama.SASLTypeGSSAPI
+				saramaConfig.Net.SASL.GSSAPI = sarama.GSSAPIConfig{
+					AuthType:           sarama.KRB5_KEYTAB_AUTH,
+					Realm:              c.Realm,
+					ServiceName:        c.ServiceName,
+					Username:           c.UserName,
+					KeyTabPath:         c.KeyTabPath,
+					KerberosConfigPath: c.KerberosConfigPath,
+				}
+			} else {
+				return errors.Errorf("invalid SHA algorithm \"%s\": can be either \"sha256\" or \"sha512\"", c.Algorithm)
+			}
+		} else {
+			// 如果有kerberosconfig配置
+			saramaConfig.Net.SASL.Enable = true
+			saramaConfig.Net.SASL.Mechanism = sarama.SASLTypeGSSAPI
+			saramaConfig.Net.SASL.GSSAPI = *c.KerberosConfig
+		}
+	}
+
+	if c.UseTLS {
+		saramaConfig.Net.TLS.Enable = true
+		tlsConf, err := c.newTLSConfiguration()
+		if err != nil {
+			return err
+		}
+		saramaConfig.Net.TLS.Config = tlsConf
+	}
+
+	// consumer
+	if c.Assignor != "" {
+		// Strategy for allocating topic partitions to members (default BalanceStrategyRange)
+		switch c.Assignor {
+		case "sticky":
+			saramaConfig.Consumer.Group.Rebalance.Strategy = sarama.BalanceStrategySticky
+		case "roundrobin":
+			saramaConfig.Consumer.Group.Rebalance.Strategy = sarama.BalanceStrategyRoundRobin
+		case "range":
+			saramaConfig.Consumer.Group.Rebalance.Strategy = sarama.BalanceStrategyRange
+		default:
+			return errors.Errorf("Unrecognized consumer group partition assignor: %s, acceptable assignors are sticky/roundrobin/range", c.Assignor)
+		}
+	}
+
+	if c.Oldest {
+		saramaConfig.Consumer.Offsets.Initial = sarama.OffsetOldest
+	}
+
+	// sarama给的初始值100ms过小，导致消费者在处理消息时来不及，从而导致consumer被踢出和重新加入group
+	// 日志会显示：abandoned subscription ... because consuming was taking too long
+	// 详情见: https://github.com/ozontech/file.d/issues/538
+	// 		https://github.com/influxdata/telegraf/issues/7622
+	saramaConfig.Consumer.MaxProcessingTime = 1 * time.Second
+
+	// producer
+	// The total number of times to retry sending a message (default 3).
+	saramaConfig.Producer.Retry.Max = 3
+	// The level of acknowledgement reliability needed from the broker (defaults
+	// to WaitForLocal).
+	saramaConfig.Producer.RequiredAcks = sarama.WaitForLocal
+	// If enabled, successfully delivered messages will be returned on the
+	// Successes channel.Must be true to be used in a SyncProducer
+	saramaConfig.Producer.Return.Successes = true
+
+	//增加backoff 的设置
+	if c.Backoff != "" {
+		intbackoff, _ := strconv.Atoi(c.Backoff)
+		saramaConfig.Producer.Retry.Backoff = time.Duration(intbackoff) * time.Millisecond
+		//comsumer
+		saramaConfig.Consumer.Retry.Backoff = time.Duration(intbackoff) * time.Millisecond
+	}
+
+	c.saram = saramaConfig
+
+	return nil
+}
+func (c *Config) GetSarama() (*sarama.Config, error) {
+	err := c.initSarama()
+	if err != nil {
+		return nil, err
+	}
+	return c.saram, nil
+}
