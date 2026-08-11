@@ -10,3 +10,4 @@ docs/swagger*
 .project
 .idea
 .idea/*
+.claude/
