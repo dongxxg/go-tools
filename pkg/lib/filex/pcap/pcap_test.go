@@ -1,15 +1,16 @@
-package main
+package pcap
 
 import (
 	"fmt"
 	"log"
+	"testing"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"github.com/google/gopacket/pcap"
 )
 
-func main() {
+func TestPcap(t *testing.T) {
 	// 修改为你自己文件路径
 	pcapFile := "Eth0.pcap"
 
