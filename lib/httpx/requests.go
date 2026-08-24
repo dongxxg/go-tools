@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/dongxxg/go-tools/common"
+	"github.com/dongxxg/go-tools/lib/mapping"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
-	"unitechs.com/unios-dice/uni-base/core/common"
-	"unitechs.com/unios-dice/uni-base/lib/mapping"
 )
 
 const (

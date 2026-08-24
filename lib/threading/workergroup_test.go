@@ -6,8 +6,8 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/dongxxg/go-tools/lib/lang"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/lib/lang"
 )
 
 func TestWorkerGroup(t *testing.T) {

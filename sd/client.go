@@ -1,14 +1,14 @@
 package sd
 
 import (
+	"github.com/dongxxg/go-tools/sd/consul"
 	"strings"
 	"sync"
-	"unitechs.com/unios-dice/uni-base/core/sd/consul"
 
-	"unitechs.com/unios-dice/uni-base/core/sd/eureka"
-	inf "unitechs.com/unios-dice/uni-base/core/sd/interface"
-	"unitechs.com/unios-dice/uni-base/core/sd/k8s"
-	"unitechs.com/unios-dice/uni-base/core/sd/nacos"
+	"github.com/dongxxg/go-tools/sd/eureka"
+	inf "github.com/dongxxg/go-tools/sd/interface"
+	"github.com/dongxxg/go-tools/sd/k8s"
+	"github.com/dongxxg/go-tools/sd/nacos"
 )
 
 var sdClient inf.Client

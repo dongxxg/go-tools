@@ -3,8 +3,8 @@ package executors
 import (
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/syncx"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 // A LessExecutor is an executor to limit execution once within given time interval.

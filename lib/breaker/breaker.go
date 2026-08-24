@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
-	"unitechs.com/unios-dice/uni-base/lib/mathx"
-	"unitechs.com/unios-dice/uni-base/lib/proc"
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
+	"github.com/dongxxg/go-tools/lib/mathx"
+	"github.com/dongxxg/go-tools/lib/proc"
+	"github.com/dongxxg/go-tools/lib/stringx"
+	"github.com/dongxxg/go-tools/log"
 )
 
 const (

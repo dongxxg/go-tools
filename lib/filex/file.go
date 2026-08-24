@@ -12,7 +12,7 @@ import (
 	"regexp"
 	"runtime"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 const bufSize = 1024

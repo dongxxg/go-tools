@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strings"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
+	"github.com/dongxxg/go-tools/lib/lang"
 )
 
 type Set interface {

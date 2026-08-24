@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
+	"github.com/dongxxg/go-tools/lib/stringx"
 )
 
 func consumeMsg(topic string, timestamp time.Time, value []byte) {

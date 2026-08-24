@@ -1,9 +1,9 @@
 package hc
 
 import (
+	"github.com/dongxxg/go-tools/log"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/v3/mem"
-	"unitechs.com/unios-dice/uni-base/core/log"
 	"time"
 )
 

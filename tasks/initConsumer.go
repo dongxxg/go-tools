@@ -11,8 +11,8 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/dongxxg/go-tools/log"
 	"github.com/hibiken/asynq"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 // RedisConfig holds the minimal redis connection info for building an asynq client.

@@ -4,8 +4,8 @@ import (
 	"encoding/base64"
 	"testing"
 
+	"github.com/dongxxg/go-tools/lib/filex"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/lib/filex"
 )
 
 const (

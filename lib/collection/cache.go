@@ -7,8 +7,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/mathx"
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
+	"github.com/dongxxg/go-tools/lib/mathx"
+	"github.com/dongxxg/go-tools/lib/syncx"
 )
 
 const (

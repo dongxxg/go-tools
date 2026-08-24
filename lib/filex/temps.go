@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"unitechs.com/unios-dice/uni-base/lib/hash"
+	"github.com/dongxxg/go-tools/lib/hash"
 )
 
 // TempFileWithText creates the temporary file with the given content,

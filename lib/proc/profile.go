@@ -14,7 +14,7 @@ import (
 	"syscall"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 // DefaultMemProfileRate is the default memory profiling rate.

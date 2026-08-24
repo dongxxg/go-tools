@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"unitechs.com/unios-dice/uni-base/lib/rescue"
+	"github.com/dongxxg/go-tools/lib/rescue"
 )
 
 // 解决裸goroutine的几个问题：

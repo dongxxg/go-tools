@@ -1,4 +1,4 @@
-package support
+package threading
 
 //官方http2 使用的goid方法 https://github.com/golang/net/blob/master/http2/gotrack.go#L51
 import (

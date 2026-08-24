@@ -3,8 +3,8 @@ package syncx
 import (
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 // A Cond is used to wait for conditions.

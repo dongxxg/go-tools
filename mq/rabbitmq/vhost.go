@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/dongxxg/go-tools/log"
 	"net/http"
 	"net/url"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 // EnsureVHost 检查并创建 vHost（如果不存在）

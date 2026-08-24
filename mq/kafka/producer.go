@@ -3,10 +3,10 @@ package kafka
 import (
 	"fmt"
 	"github.com/IBM/sarama"
+	"github.com/dongxxg/go-tools/log"
 	"github.com/pkg/errors"
 	"strings"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 type Producer struct {

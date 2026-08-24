@@ -3,7 +3,7 @@ package mapping
 import (
 	"io"
 
-	"unitechs.com/unios-dice/uni-base/lib/jsonx"
+	"github.com/dongxxg/go-tools/lib/jsonx"
 )
 
 const jsonTagKey = "json"

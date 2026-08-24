@@ -5,7 +5,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 const timeFormat = "0102150405"

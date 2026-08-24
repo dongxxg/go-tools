@@ -9,7 +9,7 @@ import (
 	"math/rand"
 	"net"
 
-	inf "unitechs.com/unios-dice/uni-base/core/sd/interface"
+	inf "github.com/dongxxg/go-tools/sd/interface"
 )
 
 // Client 基于K8s DNS的服务实例发现

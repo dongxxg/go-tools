@@ -9,8 +9,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"unitechs.com/unios-dice/uni-base/lib/proc"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/proc"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 const threshold = 10

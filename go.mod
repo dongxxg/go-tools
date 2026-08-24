@@ -1,4 +1,4 @@
-module go-tools
+module github.com/dongxxg/go-tools
 
 go 1.24.0
 
@@ -71,7 +71,6 @@ require (
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.1
 	nhooyr.io/websocket v1.8.10
-	unitechs.com/unios-dice/uni-base v1.0.35
 )
 
 require (
@@ -127,6 +126,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/jonboulle/clockwork v0.5.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect

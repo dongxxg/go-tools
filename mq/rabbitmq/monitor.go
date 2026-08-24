@@ -1,8 +1,8 @@
 package rabbitmq
 
 import (
+	"github.com/dongxxg/go-tools/log"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 // 负责重连

@@ -2,12 +2,12 @@ package redis
 
 import (
 	"context"
+	"github.com/dongxxg/go-tools/lib/mapping"
+	"github.com/dongxxg/go-tools/lib/timex"
+	"github.com/dongxxg/go-tools/log"
 	"github.com/go-redis/redis/v8"
 	"strings"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
-	"unitechs.com/unios-dice/uni-base/lib/mapping"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
 )
 
 type SlowCallHook struct{}

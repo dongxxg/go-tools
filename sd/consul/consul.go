@@ -3,11 +3,11 @@ package consul
 import (
 	"fmt"
 
+	"github.com/dongxxg/go-tools/common"
+	"github.com/dongxxg/go-tools/config"
+	"github.com/dongxxg/go-tools/log"
+	inf "github.com/dongxxg/go-tools/sd/interface"
 	stdconsul "github.com/hashicorp/consul/api"
-	"unitechs.com/unios-dice/uni-base/core/common"
-	"unitechs.com/unios-dice/uni-base/core/config"
-	"unitechs.com/unios-dice/uni-base/core/log"
-	inf "unitechs.com/unios-dice/uni-base/core/sd/interface"
 )
 
 // TODO 未测试

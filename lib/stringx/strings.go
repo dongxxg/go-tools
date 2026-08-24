@@ -3,7 +3,7 @@ package stringx
 import (
 	"errors"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
+	"github.com/dongxxg/go-tools/lib/lang"
 )
 
 var (

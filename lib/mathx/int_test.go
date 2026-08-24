@@ -3,8 +3,8 @@ package mathx
 import (
 	"testing"
 
+	"github.com/dongxxg/go-tools/lib/stringx"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
 )
 
 func TestMaxInt(t *testing.T) {

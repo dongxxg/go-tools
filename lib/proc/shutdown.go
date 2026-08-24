@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
-	"unitechs.com/unios-dice/uni-base/lib/threading"
+	"github.com/dongxxg/go-tools/lib/threading"
+	"github.com/dongxxg/go-tools/log"
 )
 
 const (

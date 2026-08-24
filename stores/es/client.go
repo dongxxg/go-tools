@@ -10,10 +10,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dongxxg/go-tools/lib/mapping"
+	"github.com/dongxxg/go-tools/log"
 	es "github.com/elastic/go-elasticsearch/v7"
 	"github.com/elastic/go-elasticsearch/v7/esapi"
-	"unitechs.com/unios-dice/uni-base/core/log"
-	"unitechs.com/unios-dice/uni-base/lib/mapping"
 )
 
 type Client struct {

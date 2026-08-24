@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/dongxxg/go-tools/lib/netx/ip"
 	"golang.org/x/crypto/ssh"
-	"unitechs.com/unios-dice/uni-base/lib/netx/ip"
 )
 
 func NewPasswordClient(address, username, password string, port int, conntimeout time.Duration) (*ssh.Client, error) {

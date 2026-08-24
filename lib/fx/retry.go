@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/errorx"
+	"github.com/dongxxg/go-tools/lib/errorx"
 )
 
 const defaultRetryTimes = 3

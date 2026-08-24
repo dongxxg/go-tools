@@ -5,8 +5,8 @@ import (
 	"io"
 	"strings"
 
+	"github.com/dongxxg/go-tools/lib/syncx"
 	red "github.com/go-redis/redis/v8"
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
 )
 
 var clusterManager = syncx.NewResourceManager()

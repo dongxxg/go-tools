@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 // Down2File downloads the content at url and writes it to localFile.

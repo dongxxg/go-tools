@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/IBM/sarama"
+	"github.com/dongxxg/go-tools/log"
 	"github.com/pkg/errors"
 	metrics "github.com/rcrowley/go-metrics"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 func init() {

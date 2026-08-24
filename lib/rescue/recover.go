@@ -4,7 +4,7 @@ import (
 	"context"
 	"runtime/debug"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 // Recover is used with defer to do cleanup on panics.

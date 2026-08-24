@@ -1,6 +1,6 @@
 package stringx
 
-import "unitechs.com/unios-dice/uni-base/lib/lang"
+import "github.com/dongxxg/go-tools/lib/lang"
 
 const defaultMask = '*'
 

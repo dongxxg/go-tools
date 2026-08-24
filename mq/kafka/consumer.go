@@ -10,8 +10,8 @@ import (
 	"github.com/IBM/sarama"
 	"github.com/pkg/errors"
 
-	"unitechs.com/unios-dice/uni-base/core/log"
-	"unitechs.com/unios-dice/uni-base/lib/security"
+	"github.com/dongxxg/go-tools/lib/security"
+	"github.com/dongxxg/go-tools/log"
 )
 
 type Consumer struct {

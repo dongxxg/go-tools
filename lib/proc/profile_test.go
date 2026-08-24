@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/dongxxg/go-tools/log"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 func TestProfile(t *testing.T) {

@@ -14,10 +14,10 @@ import (
 	"sync"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/jsonx"
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/proc"
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
+	"github.com/dongxxg/go-tools/lib/jsonx"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/proc"
+	"github.com/dongxxg/go-tools/lib/stringx"
 )
 
 const (

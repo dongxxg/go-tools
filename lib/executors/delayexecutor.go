@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/threading"
+	"github.com/dongxxg/go-tools/lib/threading"
 )
 
 // A DelayExecutor delays a tasks on given delay interval.

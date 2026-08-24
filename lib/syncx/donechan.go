@@ -3,7 +3,7 @@ package syncx
 import (
 	"sync"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
+	"github.com/dongxxg/go-tools/lib/lang"
 )
 
 // A DoneChan is used as a channel that can be closed multiple times and wait for done.

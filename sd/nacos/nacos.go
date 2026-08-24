@@ -8,12 +8,12 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/model"
 	"github.com/nacos-group/nacos-sdk-go/vo"
 
+	"github.com/dongxxg/go-tools/common"
+	"github.com/dongxxg/go-tools/config"
+	"github.com/dongxxg/go-tools/log"
+	inf "github.com/dongxxg/go-tools/sd/interface"
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"strings"
-	"unitechs.com/unios-dice/uni-base/core/common"
-	"unitechs.com/unios-dice/uni-base/core/config"
-	"unitechs.com/unios-dice/uni-base/core/log"
-	inf "unitechs.com/unios-dice/uni-base/core/sd/interface"
 )
 
 type Client struct {

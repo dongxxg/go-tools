@@ -4,8 +4,8 @@ import (
 	"crypto/tls"
 	"io"
 
+	"github.com/dongxxg/go-tools/lib/syncx"
 	red "github.com/go-redis/redis/v8"
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
 )
 
 const (

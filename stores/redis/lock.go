@@ -6,8 +6,8 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/dongxxg/go-tools/log"
 	red "github.com/go-redis/redis/v8"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 const (

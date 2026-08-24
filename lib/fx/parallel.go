@@ -1,6 +1,6 @@
 package fx
 
-import "unitechs.com/unios-dice/uni-base/lib/threading"
+import "github.com/dongxxg/go-tools/lib/threading"
 
 // Parallel runs fns parallelly and waits for done.
 func Parallel(fns ...func()) {

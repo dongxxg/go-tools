@@ -14,8 +14,8 @@ import (
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
 
-	"unitechs.com/unios-dice/uni-base/core/common"
-	conf "unitechs.com/unios-dice/uni-base/core/config"
+	"github.com/dongxxg/go-tools/common"
+	conf "github.com/dongxxg/go-tools/config"
 )
 
 // Fields type, used to pass to `WithFields`.

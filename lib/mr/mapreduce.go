@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"unitechs.com/unios-dice/uni-base/lib/errorx"
+	"github.com/dongxxg/go-tools/lib/errorx"
 )
 
 const (

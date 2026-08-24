@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/stringx"
+	"github.com/dongxxg/go-tools/lib/syncx"
+	"github.com/dongxxg/go-tools/lib/timex"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
 )
 
 const (

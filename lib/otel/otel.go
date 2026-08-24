@@ -3,6 +3,7 @@ package otel
 import (
 	"context"
 	"errors"
+	"github.com/dongxxg/go-tools/log"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
@@ -12,7 +13,6 @@ import (
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"os"
 	"sync"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 // 紧记，once只会执行一次，无论什么函数，需要执行不同的函数要使用不同的变量

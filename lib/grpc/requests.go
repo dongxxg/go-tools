@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
+	"github.com/dongxxg/go-tools/common"
 	"google.golang.org/grpc/metadata"
-	"unitechs.com/unios-dice/uni-base/core/common"
 )
 
 func ExtractRequestID(ctx context.Context) string {

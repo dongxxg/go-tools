@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 const defaultRefreshInterval = time.Second

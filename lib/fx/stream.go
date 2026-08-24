@@ -4,9 +4,9 @@ import (
 	"sort"
 	"sync"
 
-	"unitechs.com/unios-dice/uni-base/lib/collection"
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/threading"
+	"github.com/dongxxg/go-tools/lib/collection"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/threading"
 )
 
 const (

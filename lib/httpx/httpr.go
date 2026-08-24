@@ -15,13 +15,13 @@ import (
 
 	"github.com/google/uuid"
 
+	"github.com/dongxxg/go-tools/common"
 	"github.com/opentracing-contrib/go-stdlib/nethttp"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	otlog "github.com/opentracing/opentracing-go/log"
 	"github.com/pkg/errors"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-	"unitechs.com/unios-dice/uni-base/core/common"
 )
 
 const (

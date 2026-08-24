@@ -10,8 +10,8 @@ import (
 	"strings"
 	"sync"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/stringx"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/stringx"
 )
 
 const (

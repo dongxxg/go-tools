@@ -2,7 +2,7 @@ package util
 
 import (
 	"encoding/json"
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 )
 
 func ConvertToJsonStr(v interface{}) string {

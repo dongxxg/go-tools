@@ -3,7 +3,7 @@ package ip2RegionUtil
 import (
 	"errors"
 	"fmt"
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 	"strings"
 	"time"
 

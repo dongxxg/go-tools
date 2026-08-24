@@ -4,7 +4,7 @@ import (
 	"io"
 	"sync"
 
-	"unitechs.com/unios-dice/uni-base/lib/errorx"
+	"github.com/dongxxg/go-tools/lib/errorx"
 )
 
 // A ResourceManager is a manager that used to manage resources.

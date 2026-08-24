@@ -3,7 +3,7 @@ package syncx
 import (
 	"errors"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
+	"github.com/dongxxg/go-tools/lib/lang"
 )
 
 // ErrLimitReturn indicates that the more than borrowed elements were returned.

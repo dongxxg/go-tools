@@ -6,11 +6,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/proc"
-	"unitechs.com/unios-dice/uni-base/lib/syncx"
-	"unitechs.com/unios-dice/uni-base/lib/threading"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/proc"
+	"github.com/dongxxg/go-tools/lib/syncx"
+	"github.com/dongxxg/go-tools/lib/threading"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 const idleRound = 10

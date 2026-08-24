@@ -3,8 +3,8 @@ package sd
 import (
 	"fmt"
 
-	"unitechs.com/unios-dice/uni-base/core/common"
-	"unitechs.com/unios-dice/uni-base/core/config"
+	"github.com/dongxxg/go-tools/common"
+	"github.com/dongxxg/go-tools/config"
 )
 
 func CreateRegistion() (name, ip string, port uint64, err error) {

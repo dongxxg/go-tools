@@ -3,7 +3,7 @@ package util
 import (
 	"flag"
 	"fmt"
-	"unitechs.com/unios-dice/uni-base/core/log"
+	"github.com/dongxxg/go-tools/log"
 	"io"
 	"net"
 )

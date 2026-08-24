@@ -2,10 +2,10 @@ package rabbitmq
 
 import (
 	"errors"
+	"github.com/dongxxg/go-tools/log"
 	uuid "github.com/satori/go.uuid"
 	"github.com/streadway/amqp"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 type chanWarp struct {

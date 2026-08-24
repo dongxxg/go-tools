@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/dongxxg/go-tools/common"
 	"github.com/stretchr/testify/assert"
-	"unitechs.com/unios-dice/uni-base/core/common"
 )
 
 func TestParseForm(t *testing.T) {

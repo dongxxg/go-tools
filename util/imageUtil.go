@@ -2,7 +2,7 @@ package util
 
 import (
 	"bytes"
-	logger "unitechs.com/unios-dice/uni-base/core/log"
+	logger "github.com/dongxxg/go-tools/log"
 	"image"
 	"image/png"
 )

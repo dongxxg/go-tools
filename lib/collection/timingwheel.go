@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/threading"
-	"unitechs.com/unios-dice/uni-base/lib/timex"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/threading"
+	"github.com/dongxxg/go-tools/lib/timex"
 )
 
 // https://go-zero.dev/cn/docs/blog/principle/timing-wheel/

@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/dongxxg/go-tools/common"
+	conf "github.com/dongxxg/go-tools/config"
 	"github.com/sirupsen/logrus"
-	"unitechs.com/unios-dice/uni-base/core/common"
-	conf "unitechs.com/unios-dice/uni-base/core/config"
 )
 
 var log = Noop()

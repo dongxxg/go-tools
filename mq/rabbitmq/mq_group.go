@@ -1,13 +1,12 @@
 package rabbitmq
 
 import (
+	"github.com/dongxxg/go-tools/log"
 	"github.com/streadway/amqp"
-	"log"
 	"net"
 	"runtime/debug"
 	"strconv"
 	"time"
-	"unitechs.com/unios-dice/uni-base/core/log"
 )
 
 type mode int
@@ -206,7 +205,7 @@ func (g *AMQPGroup) start(
 
 func failOnError(err error, msg string) {
 	if err != nil {
-		log.Panicf("%s: %s", msg, err)
+		log.Fatalf("%s: %s", msg, err)
 	}
 }
 

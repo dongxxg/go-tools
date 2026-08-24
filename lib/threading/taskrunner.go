@@ -1,8 +1,8 @@
 package threading
 
 import (
-	"unitechs.com/unios-dice/uni-base/lib/lang"
-	"unitechs.com/unios-dice/uni-base/lib/rescue"
+	"github.com/dongxxg/go-tools/lib/lang"
+	"github.com/dongxxg/go-tools/lib/rescue"
 )
 
 type TaskRunner struct {

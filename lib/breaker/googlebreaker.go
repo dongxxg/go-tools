@@ -4,8 +4,8 @@ import (
 	"math"
 	"time"
 
-	"unitechs.com/unios-dice/uni-base/lib/collection"
-	"unitechs.com/unios-dice/uni-base/lib/mathx"
+	"github.com/dongxxg/go-tools/lib/collection"
+	"github.com/dongxxg/go-tools/lib/mathx"
 )
 
 const (
