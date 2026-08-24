@@ -1,0 +1,7 @@
+# redis configuration
+redis:
+  host: 127.0.0.1:6379
+  password: ""
+  maxIdle: 30
+  maxActive: 30
+  idleTimeout: 200
