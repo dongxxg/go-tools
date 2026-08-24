@@ -2,7 +2,7 @@ package ip2RegionUtil
 
 import (
 	"fmt"
-	"support/util/http_util"
+	"github.com/dongxxg/go-tools/util/http_util"
 	"testing"
 	"time"
 

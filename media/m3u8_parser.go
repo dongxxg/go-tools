@@ -1,9 +1,9 @@
 package media
 
 import (
+	"github.com/dongxxg/go-tools/log"
 	"strconv"
 	"strings"
-	"support/logger"
 	"time"
 )
 
@@ -134,7 +134,7 @@ func parseExtinf(lineExtInfo string) float64 {
 	durationArray := strings.Split(lineExtInfo, ":")
 	floatValue, err := strconv.ParseFloat(strings.TrimRight(durationArray[1], ","), 32)
 	if err != nil {
-		logger.Error(
+		log.Errorf(
 			"deal ts duration,parsefloat failed,origin lineExtInfo is %s,it should not occur ",
 			lineExtInfo,
 		)

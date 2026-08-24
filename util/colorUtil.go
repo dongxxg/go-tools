@@ -3,7 +3,6 @@ package util
 import (
 	"image/color"
 	"strconv"
-	logger "support/logger"
 )
 
 var WHITE = color.RGBA{0xF5, 0xF8, 0xFA, 0xff}
@@ -20,7 +19,6 @@ func ConvertHex2Rgb(value string) color.RGBA {
 	}
 	rgb, err := strconv.ParseUint(value[1:], 16, 24)
 	if err != nil {
-		logger.Warn("%s is not valid color HEX;eg #2e3038;error :%v", value, err)
 		return WHITE
 	}
 	res := color.RGBA{uint8((rgb >> 16) & 255), uint8((rgb >> 8) & 255), uint8(rgb & 255), 0xff}

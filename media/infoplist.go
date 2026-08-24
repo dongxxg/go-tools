@@ -1,6 +1,6 @@
 package media
 
-import "support/logger"
+import "github.com/dongxxg/go-tools/log"
 
 const LastestInfoplistVersion = "2.12"
 
@@ -61,7 +61,7 @@ func NewInfoPlistV25(deskDuration, headDuration int64) *InfoPlist {
 func NewInfoPlistBeyondVersion2V12(deskDuration, headDuration int64, version string) *InfoPlist {
 	if version != "2.12" {
 		// 后续看具体情况再考虑支持
-		logger.Warn("需要实现该版本的infolist, 版本号 %s", version)
+		log.Warnf("需要实现该版本的infolist, 版本号 %s", version)
 	}
 	// 通用逻辑
 	res := NewInfoPlistV25(deskDuration, headDuration)

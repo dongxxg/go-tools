@@ -1,4 +1,4 @@
-package support
+package util
 
 import (
 	"mime/multipart"

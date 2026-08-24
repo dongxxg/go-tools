@@ -1,4 +1,4 @@
-package support
+package util
 
 // 三元运算符 if
 func If[T any](judge bool, valueA, valueB T) T {

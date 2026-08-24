@@ -4,7 +4,7 @@ package rabbitmq
 import (
 	"bytes"
 	"encoding/base64"
-	"go-tools/support/util"
+	"github.com/dongxxg/go-tools/util"
 	"strconv"
 	"strings"
 	"time"

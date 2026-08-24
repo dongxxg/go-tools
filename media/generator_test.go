@@ -2,8 +2,8 @@ package media
 
 import (
 	"fmt"
+	"github.com/dongxxg/go-tools/log"
 	"os"
-	"support/logger"
 	"testing"
 )
 
@@ -28,7 +28,7 @@ func getM3u8Content(m3u8Path string) []byte {
 	if err == nil {
 		return content
 	} else {
-		logger.Error("testfailed,%v", err)
+		log.Errorf("testfailed,%v", err)
 		return []byte{}
 	}
 }
