@@ -7,10 +7,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/dongxxg/go-tools/lib/mapping"
 	"net/http"
 	"strings"
 
-	"github.com/dongxxg/go-tools/lib/mapping"
 	"github.com/dongxxg/go-tools/log"
 	es "github.com/elastic/go-elasticsearch/v7"
 	"github.com/elastic/go-elasticsearch/v7/esapi"

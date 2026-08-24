@@ -4,11 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/dongxxg/go-tools/lib/mapping"
 	"strconv"
 	"time"
 
 	"github.com/dongxxg/go-tools/lib/breaker"
-	"github.com/dongxxg/go-tools/lib/mapping"
+
 	red "github.com/go-redis/redis/v8"
 )
 

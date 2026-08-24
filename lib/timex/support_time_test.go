@@ -1,4 +1,4 @@
-package support
+package timex
 
 import (
 	"fmt"

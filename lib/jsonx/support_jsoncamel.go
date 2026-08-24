@@ -1,4 +1,4 @@
-package support
+package jsonx
 
 import (
 	"bytes"
