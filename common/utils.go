@@ -17,7 +17,8 @@ var (
 
 // WithinUT 判断是否在运行testing
 func WithinUT() bool {
-	if strings.HasSuffix(os.Args[0], ".test") || strings.Contains(os.Args[0], "/_test/") ||
+	if strings.HasSuffix(os.Args[0], ".test") || strings.HasSuffix(os.Args[0], ".test.exe") || // windows 测试二进制后缀为 .test.exe
+		strings.Contains(os.Args[0], "/_test/") || strings.Contains(os.Args[0], "\\_test\\") ||
 		(len(os.Args) > 1 && (strings.HasSuffix(os.Args[1], ".bench") || // benchmark test
 			strings.HasPrefix(os.Args[1], "-test.run"))) { // debug test
 		fmt.Println("In UT scenario")
