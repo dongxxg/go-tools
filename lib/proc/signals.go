@@ -1,14 +1,15 @@
+//go:build !windows
+
 package proc
 
 import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/dongxxg/go-tools/log"
 )
-
-const timeFormat = "0102150405"
 
 var done = make(chan struct{})
 
@@ -51,4 +52,18 @@ func init() {
 // Done returns the channel that notifies the process quitting.
 func Done() <-chan struct{} {
 	return done
+}
+
+func gracefulStop(signals chan os.Signal) {
+	signal.Stop(signals)
+
+	log.Info("Got signal SIGTERM, shutting down...")
+	go wrapUpListeners.notifyListeners()
+
+	time.Sleep(wrapUpTime)
+	go shutdownListeners.notifyListeners()
+
+	time.Sleep(delayTimeBeforeForceQuit - wrapUpTime)
+	log.Infof("Still alive after %v, going to force kill the process...", delayTimeBeforeForceQuit)
+	syscall.Kill(syscall.Getpid(), syscall.SIGTERM)
 }

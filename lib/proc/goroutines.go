@@ -14,6 +14,8 @@ import (
 const (
 	goroutineProfile = "goroutine"
 	debugLevel       = 2
+	// timeFormat 转储文件名的时间戳格式（原 signals.go 定义，现为本文件唯一消费者）。
+	timeFormat = "0102150405"
 )
 
 type creator interface {

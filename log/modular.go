@@ -199,6 +199,11 @@ func getLogfilename(config Config) string {
 	var logFullPath string
 	if config.LogPath != "" {
 		logFullPath = config.LogPath
+	} else if confPath := conf.GetString("Logging.Path"); confPath != "" {
+		// 包 init 阶段 Noop() 以 NewConfig()（LogPath 为空）调用 New，
+		// 此处回退读已加载的 viper 配置；否则会兜底到二进制目录/logs，
+		// 容器内非 root 用户对该目录通常无写权限，导致启动 panic
+		logFullPath = confPath
 	} else {
 		// follow project layout convention
 		logFullPath = filepath.Join(filepath.Dir(binaryFullPath), "logs")

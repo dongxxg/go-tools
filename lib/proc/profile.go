@@ -1,3 +1,5 @@
+//go:build !windows
+
 // 使用pprof进行profiling
 
 package proc

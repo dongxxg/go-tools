@@ -1,14 +1,10 @@
 package proc
 
 import (
-	"os"
-	"os/signal"
 	"sync"
-	"syscall"
 	"time"
 
 	"github.com/dongxxg/go-tools/lib/threading"
-	"github.com/dongxxg/go-tools/log"
 )
 
 const (
@@ -48,20 +44,6 @@ func Shutdown() {
 // WrapUp wraps up the process, only for test purpose.
 func WrapUp() {
 	wrapUpListeners.notifyListeners()
-}
-
-func gracefulStop(signals chan os.Signal) {
-	signal.Stop(signals)
-
-	log.Info("Got signal SIGTERM, shutting down...")
-	go wrapUpListeners.notifyListeners()
-
-	time.Sleep(wrapUpTime)
-	go shutdownListeners.notifyListeners()
-
-	time.Sleep(delayTimeBeforeForceQuit - wrapUpTime)
-	log.Infof("Still alive after %v, going to force kill the process...", delayTimeBeforeForceQuit)
-	syscall.Kill(syscall.Getpid(), syscall.SIGTERM)
 }
 
 type listenerManager struct {
