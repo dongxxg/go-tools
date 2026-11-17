@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	protoes "go-tools/pkg/rpc/grpc/myptoto"
+	protoes "github.com/dongxxg/go-tools/rpc/grpc/myptoto"
 	"google.golang.org/grpc"
 	"log"
 	"net"

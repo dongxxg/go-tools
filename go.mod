@@ -5,24 +5,21 @@ go 1.24.0
 require (
 	github.com/IBM/sarama v1.45.2
 	github.com/alicebob/miniredis/v2 v2.19.0
-	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
 	github.com/casbin/casbin/v2 v2.77.2
 	github.com/dgrijalva/jwt-go v3.2.1-0.20210802184156-9742bd7fca1c+incompatible
 	github.com/elastic/go-elasticsearch/v7 v7.17.1
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/fumiama/go-docx v0.0.0-20250506085032-0c30fd09304b
 	github.com/gin-gonic/gin v1.8.2
-	github.com/go-ini/ini v1.67.0
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1
-	github.com/gomodule/redigo v1.8.9
 	github.com/google/gopacket v1.1.19
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/hashicorp/consul/api v1.28.2
 	github.com/hibiken/asynq v0.25.1
-	github.com/jinzhu/gorm v1.9.16
+	github.com/jmoiron/sqlx v1.4.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250630080345-f9402614f6ba
 	github.com/mitchellh/mapstructure v1.5.0
@@ -45,6 +42,7 @@ require (
 	github.com/spf13/viper v1.15.0
 	github.com/streadway/amqp v1.0.0
 	github.com/stretchr/testify v1.10.0
+	github.com/talentkai/gorm-dameng v1.0.5
 	github.com/tidwall/gjson v1.14.4
 	github.com/valyala/fasthttp v1.51.0
 	github.com/vicanso/go-charts/v2 v2.6.10
@@ -58,9 +56,8 @@ require (
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.28.0
 	go.opentelemetry.io/otel/sdk v1.28.0
 	go.uber.org/goleak v1.3.0
-	go.uber.org/zap v1.27.0
 	golang.org/x/crypto v0.40.0
-	golang.org/x/text v0.27.0
+	golang.org/x/text v0.32.0
 	golang.org/x/time v0.12.0
 	google.golang.org/grpc v1.67.1
 	google.golang.org/protobuf v1.36.7
@@ -69,7 +66,7 @@ require (
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gorm.io/driver/mysql v1.6.0
-	gorm.io/gorm v1.30.1
+	gorm.io/gorm v1.31.2
 	nhooyr.io/websocket v1.8.10
 )
 
@@ -131,7 +128,6 @@ require (
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lestrrat-go/strftime v1.0.6 // indirect
-	github.com/lib/pq v1.2.0 // indirect
 	github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
@@ -168,10 +164,11 @@ require (
 	go.opentelemetry.io/otel/trace v1.28.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/exp v0.0.0-20230817173708-d852ddb80c63 // indirect
 	golang.org/x/image v0.29.0 // indirect
 	golang.org/x/net v0.42.0 // indirect
-	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.35.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240814211410-ddb44dafa142 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250728155136-f173205681a0 // indirect

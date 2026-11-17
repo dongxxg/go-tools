@@ -17,12 +17,19 @@ var (
 
 // WithinUT 判断是否在运行testing
 func WithinUT() bool {
-	if strings.HasSuffix(os.Args[0], ".test") || strings.HasSuffix(os.Args[0], ".test.exe") || // windows 测试二进制后缀为 .test.exe
-		strings.Contains(os.Args[0], "/_test/") || strings.Contains(os.Args[0], "\\_test\\") ||
-		(len(os.Args) > 1 && (strings.HasSuffix(os.Args[1], ".bench") || // benchmark test
-			strings.HasPrefix(os.Args[1], "-test.run"))) { // debug test
+	// windows下测试二进制为 xxx.test.exe, 先去掉 .exe 再判断
+	bin := strings.TrimSuffix(os.Args[0], ".exe")
+	if strings.HasSuffix(bin, ".test") || strings.Contains(os.Args[0], "/_test/") ||
+		strings.Contains(os.Args[0], "\\_test\\") {
 		fmt.Println("In UT scenario")
 		return true
+	}
+	// go test 和 debug test 会传入 -test.* 参数
+	for _, arg := range os.Args[1:] {
+		if strings.HasSuffix(arg, ".bench") || strings.HasPrefix(arg, "-test.") {
+			fmt.Println("In UT scenario")
+			return true
+		}
 	}
 	return false
 }

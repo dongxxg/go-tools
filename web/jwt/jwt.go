@@ -2,12 +2,10 @@ package jwt
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	"go-tools/pkg/global"
 	"time"
 )
 
-var jwtSecret = []byte(global.JwtSecret)
-
+var jwtSecret = []byte("1234567890abcdefghijklmnopqrstuvwxyz")
 
 type Claims struct {
 	Username string `json:"username"`
@@ -22,9 +20,9 @@ func GenerateToken(username, password string) (string, error) {
 	claims := Claims{
 		username,
 		password,
-		jwt.StandardClaims {
+		jwt.StandardClaims{
 			ExpiresAt: expireTime.Unix(),
-			Issuer: "project_name",
+			Issuer:    "project_name",
 		},
 	}
 	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

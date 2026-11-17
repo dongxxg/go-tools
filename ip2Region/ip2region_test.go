@@ -2,9 +2,10 @@ package ip2RegionUtil
 
 import (
 	"fmt"
-	"github.com/dongxxg/go-tools/util/http_util"
 	"testing"
 	"time"
+
+	"github.com/dongxxg/go-tools/lib/httpx"
 
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
 )
@@ -17,7 +18,7 @@ func TestIp2Region(t *testing.T) {
 	var cBuff []byte
 
 	// 下载
-	err = http_util.Down2File(downloadPath, dbPath)
+	err = httpx.Down2File(downloadPath, dbPath, 2*time.Minute)
 	if err != nil {
 		fmt.Printf("failed to download `%s`: %s\n", downloadPath, err)
 		return
