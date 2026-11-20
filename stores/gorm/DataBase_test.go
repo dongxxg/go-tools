@@ -253,3 +253,50 @@ func TestGormLoggerLevels(t *testing.T) {
 		})
 	}
 }
+
+// TestPostgresDSNMatchesConfigFormat 断言 postgres DSN 构造与后端现网
+// internal/config.PostgresConfig.DSN() 的格式串/实参顺序逐字一致
+// （pkg 模块不能 import 后端 internal，期望值用对齐格式串的字面量）。
+func TestPostgresDSNMatchesConfigFormat(t *testing.T) {
+	tests := []struct {
+		name string
+		cfg  DataBase
+		want string
+	}{
+		{
+			name: "full config matches config.PostgresConfig.DSN() literal",
+			cfg: DataBase{
+				Dialect: "postgres",
+				Host:    "db.prod.internal", Port: "5432",
+				User: "learnly", Password: "s3cret",
+				DbName: "learnly", SSLMode: "disable",
+			},
+			want: "host=db.prod.internal port=5432 user=learnly password=s3cret dbname=learnly sslmode=disable TimeZone=Asia/Shanghai",
+		},
+		{
+			name: "require sslmode kept verbatim",
+			cfg: DataBase{
+				Dialect: "postgres",
+				Host:    "pg1", Port: "5433", User: "u", Password: "p",
+				DbName: "d", SSLMode: "require",
+			},
+			want: "host=pg1 port=5433 user=u password=p dbname=d sslmode=require TimeZone=Asia/Shanghai",
+		},
+		{
+			name: "empty sslmode formatted verbatim (disable fallback lives in store layer, not here)",
+			cfg: DataBase{
+				Dialect: "postgres",
+				Host:    "pg1", Port: "5432", User: "u", Password: "p",
+				DbName: "d", SSLMode: "",
+			},
+			want: "host=pg1 port=5432 user=u password=p dbname=d sslmode= TimeZone=Asia/Shanghai",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := postgresDSN(tt.cfg); got != tt.want {
+				t.Errorf("postgresDSN() =\n%q\nwant\n%q", got, tt.want)
+			}
+		})
+	}
+}

@@ -9,6 +9,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	dameng "github.com/talentkai/gorm-dameng"
 	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	glog "gorm.io/gorm/logger"
 
@@ -39,6 +40,7 @@ type DataBase struct {
 	User            string        `json:"user"`
 	Password        string        `json:"password"`
 	DbName          string        `json:"db"`
+	SSLMode         string        `json:"sslMode"`         // 仅 postgres 使用: disable/require/verify-full/...
 	Pool            MysqlPool     `json:"pool"`            // 连接池配置
 	SlowThresholdMs int           `json:"slowThresholdMs"` // 慢SQL阈值(毫秒), <=0 使用默认值
 	GormLogLevel    glog.LogLevel `json:"gormLogLevel"`    // gorm日志级别 1静默 2错误 3警告 4信息, 未配置时根据 Logging.Level 推导
@@ -128,6 +130,9 @@ func Init(cfg DataBase, cloudProvider, serviceName string) {
 			options,
 		)
 		dialector = dameng.Open(dsn)
+	case "postgres":
+		dsn = postgresDSN(cfg)
+		dialector = postgres.Open(dsn)
 	default:
 		panic(fmt.Sprintf("unsupported database type: %s", cfg.Dialect))
 	}
@@ -149,6 +154,14 @@ func Init(cfg DataBase, cloudProvider, serviceName string) {
 
 	// 不记录密码
 	log.Infof("database[%s] connected: %s@%s:%s/%s", cfg.Dialect, cfg.User, cfg.Host, cfg.Port, cfg.DbName)
+}
+
+// postgresDSN 构造 postgres DSN, 格式与实参顺序对齐业务侧
+// config.PostgresConfig.DSN(): host, port, user, password, dbname, sslmode。
+// SSLMode 照实格式化, 空值兜底由调用方组装层决定。
+func postgresDSN(cfg DataBase) string {
+	return fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s TimeZone=Asia/Shanghai",
+		cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.DbName, cfg.SSLMode)
 }
 
 // normalizeGormLogLevel 将非法的gorm日志级别修正为默认值 Warn
